@@ -1,0 +1,47 @@
+.list {
+  li {
+    display: flex;
+    align-items: center;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin-bottom: 5px;
+
+    &:first-child {
+      margin-bottom: 25px;
+    }
+
+    &.active {
+      background: #ffffff;
+      box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.05);
+      border-radius: 4px;
+    }
+
+    i {
+      display: inline-flex;
+      margin-right: 10px;
+      img {
+        opacity: 0.6;
+      }
+    }
+    span {
+      padding-top: 1px;
+    }
+    .badge {
+      width: 10px;
+      height: 10px;
+      border-radius: 30px;
+      position: relative;
+      left: 5px;
+      &--green {
+        background-color: #42b883;
+      }
+
+      &--blue {
+        background-color: #64c4ed;
+      }
+      &--pink {
+        background-color: #ffbbcc;
+      }
+    }
+  }
+}

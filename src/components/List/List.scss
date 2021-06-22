@@ -9,19 +9,16 @@
     }
   }
 
-  &__add-button {
-    margin-bottom: 0 !important;
-  }
 
   li {
     display: flex;
     align-items: center;
     padding: 6px 12px;
     cursor: pointer;
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 
-    &:first-child {
-      margin-bottom: 25px;
+    &:hover{
+      background: rgba(255,255,255,0.3);
     }
 
     &.active {

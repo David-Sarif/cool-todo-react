@@ -5,8 +5,9 @@ import addSvg from '../../assets/img/add.svg'
 import AddListPopup from './AddListPopup'
 import './AddList.scss'
 
-const AddList = ({ colors }) => {
+const AddList = ({ colors, onAddList }) => {
     const [isPopupVisible, setPopupVisible] = useState(false);
+    
 
     return (
         <div className='addList'>
@@ -17,7 +18,7 @@ const AddList = ({ colors }) => {
             },]}
                 onClickAddButton={() => { setPopupVisible(!isPopupVisible) }} >
             </List >
-            {isPopupVisible ? <AddListPopup setPopupVisible={setPopupVisible} colors = {colors}></AddListPopup> : ''}
+            {isPopupVisible ? <AddListPopup onAddList={onAddList}  setPopupVisible={setPopupVisible} colors = {colors}></AddListPopup> : ''}
         </div>
     )
 }

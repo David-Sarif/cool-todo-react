@@ -1,4 +1,5 @@
 .list {
+  $self: &;
   margin-bottom: 25px;
   max-height: 400px;
   overflow: hidden;
@@ -8,6 +9,8 @@
       opacity: 1;
     }
   }
+
+  
 
 
   li {
@@ -19,6 +22,17 @@
 
     &:hover{
       background: rgba(255,255,255,0.3);
+    }
+
+    &:hover #{$self}__remove-icon{
+      opacity: 0.3;
+    }
+
+    #{$self}__remove-icon{
+      opacity: 0;
+      &:hover{
+        opacity: 1;
+      }
     }
 
     &.active {
@@ -40,6 +54,8 @@
     }
     span {
       padding-top: 1px;
+      flex: 1;
     }
   }
+  
 }

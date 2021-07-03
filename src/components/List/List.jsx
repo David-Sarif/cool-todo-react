@@ -2,10 +2,16 @@ import React from 'react';
 import './List.scss';
 import classNames from "classnames";
 import Badge from '../Badge/Badge';
+import removeSvg from '../../assets/img/remove.svg';
 
 
 
-const List = ({ items, onClickAddButton }) => {
+const List = ({ items, onClickAddButton, isRemovable, removeList }) => {
+
+    const onRemove = (item) => {
+        if (window.confirm('Вы уверены, что хотите удалить?'))
+        removeList(item)
+    };
 
     return (
         <ul className="list" onClick={onClickAddButton}>
@@ -16,6 +22,7 @@ const List = ({ items, onClickAddButton }) => {
                            {el.icon ? <img src={el.icon} alt="list icon" /> : <Badge color={el.color}></Badge>}
                         </i>
                         <span>{el.name}</span>
+                        { isRemovable && <img onClick={ ()=>onRemove(el) } className='list__remove-icon' src={removeSvg} alt={'remove icon'}/>}
                     </li>
                 ))
             }

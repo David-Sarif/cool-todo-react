@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import listSvg from './assets/img/list.svg'
 import List from './components/List/List'
 import AddList from "./components/List/AddList";
+import Tasks from './components/Tasks/Tasks'
 
 import DB from './assets/db.json'
 
@@ -14,8 +15,12 @@ function App() {
 
   const onAddList = (obj) => {
     console.log(obj)
-    const  newLists = [...lists,obj];
+    const newLists = [...lists, obj];
     setLists(newLists)
+  }
+
+  const removeList = (item) => {
+    console.log(item)
   }
 
   return (<div className="todo">
@@ -24,15 +29,18 @@ function App() {
         icon: listSvg,
         name: 'Все задачи',
         active: true,
-      }]}>
+      }]}/>
 
-      </List>
-      <List items={lists} />
-      <AddList onAddList={onAddList} colors={DB.colors}></AddList>
+     
+      <List items={lists} isRemovable={true} removeList={removeList} />
+      <AddList onAddList={onAddList} colors={DB.colors}/>
 
 
     </div>
-    <div className="todo__tasks"></div>
+    <div className="todo__tasks">
+      <Tasks/>
+
+    </div>
   </div>
   );
 }

@@ -14,6 +14,7 @@ body {
 }
 
 .todo {
+  display: flex;
   position: absolute;
   left: 50%;
   top: 50%;
@@ -36,8 +37,12 @@ body {
   
 }
 
+.todo__tasks{
+  flex: 1;
+  padding: 60px;
+}
+
 .field{
-// width: 200px;
 width: 100%;
 height: 32px;
 
@@ -69,3 +74,5 @@ padding: 8px 12px;
   }
   
 }
+
+

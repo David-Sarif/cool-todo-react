@@ -1,16 +1,31 @@
 import React from 'react';
 import './Tasks.scss';
+import AddTaskForm from './AddTaskForm';
 
 import editSvg from '../../assets/img/edit.svg'
 
-const Tasks = ({ list }) => {
-    console.log(list)
+
+const Tasks = ({ list, onEditTitle, onAddTask }) => {
+    const editTitle = () => {
+        const newTitle = window.prompt('Переназовите название списка', list.name);
+        if (newTitle) {
+            onEditTitle(list.id, newTitle)
+        }
+
+    }
+
     return (
         <div className="tasks">
-            <h2 className="tasks__title">{list.name} <img className='tasks__edit-icon' src={editSvg} alt="iconEdit" /></h2>
+            <h2 className="tasks__title">
+                {list.name}
+                <img onClick={() => editTitle()} className='tasks__edit-icon' src={editSvg} alt="iconEdit" />
+            </h2>
+
             <div className="tasks__items">
+
+                {!list.tasks.length && <h2 className="tasks__empty">Задачи отсутствуют</h2>}
                 {list.tasks.map((task, id) => (
-                    <div className="tasks__items-row" key = {id}>
+                    <div className="tasks__items-row" key={id}>
                         <div className="checkbox">
 
                             <input id={`task-${id}`} type="checkbox" name="" />
@@ -22,12 +37,13 @@ const Tasks = ({ list }) => {
                             </label>
 
                         </div>
-                        {/* <input readOnly value = {task.text} /> */}
+
                         <p>{task.text}</p>
                     </div>))}
 
 
             </div>
+           <AddTaskForm list={list} onAddTask={onAddTask}/>
         </div>)
 }
 

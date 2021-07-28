@@ -1,4 +1,15 @@
 .tasks {
+  &__empty {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: auto;
+    font-family: "Montserrat", sans-serif;
+    color: #c9d1d3;
+    font-size: 22px;
+    font-weight: normal;
+    text-align: center;
+  }
   &__title {
     font-family: "Montserrat", sans-serif;
     color: #64c4ed;
@@ -23,6 +34,40 @@
       &:hover {
         opacity: 0.8 !important;
       }
+    }
+  }
+  &__form {
+    &-new {
+      display: flex;
+      align-items: center;
+      opacity: 0.5;
+      cursor: pointer;
+      transition: opacity 0.2s ease-in-out;
+      margin-top: 20px;
+      user-select: none;
+      
+
+      &:hover {
+        opacity: 0.8;
+      }
+
+      img {
+        width: 18px;
+        height: 18px;
+        margin-left: 2px;
+      }
+
+      span {
+        font-size: 14px;
+        margin-left: 18px;
+        user-select: none;
+      }
+    }
+    &-block {
+      margin-top: 20px;
+    }
+    &-buttons{
+      margin-top: 15px;
     }
   }
   .checkbox {
@@ -70,6 +115,9 @@
   }
   &__items {
     margin-top: 30px;
+    // position: relative;
+    // min-height: 1px;
+
     &-row {
       display: flex;
       align-items: center;

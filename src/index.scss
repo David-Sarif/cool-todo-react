@@ -28,7 +28,6 @@ body {
   &__sidebar {
     background-color: #f4f6f8;
     width: 200px;
-    height: 100%;
     border-right: 1px solid #f1f1f1;
     padding-top: 60px;
     padding-left: 20px;
@@ -45,11 +44,11 @@ body {
 .field{
 width: 100%;
 height: 32px;
-
 background: #FFFFFF;
 border: 1px solid #EFEFEF;
 border-radius: 4px;
 padding: 8px 12px;
+font-size: 14px;
 
 &:focus{
   border-color: #9b9eca;
@@ -58,7 +57,7 @@ padding: 8px 12px;
 }
 
 .button {
-  width: 100%;
+  // width: 100%;
   height: 34px;
   background-color: #4DD599;
   color: #FFFFFF;
@@ -71,6 +70,22 @@ padding: 8px 12px;
   }
   &:active{
     background-color: darken(#4DD599, 15%);
+  }
+  &-add-task{
+    width: 145px;
+  }
+  &-decline{
+    width: 90px;
+    margin-left: 10px;
+    background-color: #F4F6F8;
+    color: #9C9C9C;
+    &:hover{
+      background-color: darken(#F4F6F8, 10%);
+      color: white;
+    }
+  }
+  &:disabled{
+    background-color: #dadada;
   }
   
 }

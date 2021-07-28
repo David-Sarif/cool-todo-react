@@ -31,9 +31,16 @@ const AddListPopup = ({ colors, setPopupVisible, onAddList }) => {
                     }
                 }
                 onAddList(newListObj);
-                
+
             }
-        ).finally(setIsLoading(false), onClose())
+        ).catch(() => {
+            alert('Что-то пошло не так')
+        }
+
+        ).finally(() => {
+            setIsLoading(false);
+            onClose()
+        })
 
 
     }
@@ -41,10 +48,13 @@ const AddListPopup = ({ colors, setPopupVisible, onAddList }) => {
     return (
         <div className='addList__popup'>
             <img src={closeSvg} alt='closeSvg' onClick={onClose} className="addList__popup-close-btn"></img>
-            <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} placeholder='Название папки' className='field' />
+            <input type="text" value={inputValue}
+                onChange={(e) => setInputValue(e.target.value)}
+                placeholder='Название папки' className='field' />
             <div className="addList__popup-colors">
                 {colors.map(el =>
-                    (<Badge className={selectedColor === el.id && 'active'} onClick={() => selectColor(el.id)} key={el.id} color={el.name}> </Badge>))}
+                (<Badge className={selectedColor === el.id && 'active'}
+                    onClick={() => selectColor(el.id)} key={el.id} color={el.name}> </Badge>))}
             </div>
 
             <button className='button' onClick={addList}>

@@ -38,7 +38,8 @@ const Tasks = ({ list, onEditTitle, onAddTask }) => {
 
                         </div>
 
-                        <p>{task.text}</p>
+                        {/* <p>{task.text}</p> */}
+                        <input readOnly value={task.text} />
                     </div>))}
 
 

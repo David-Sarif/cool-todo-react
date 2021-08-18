@@ -1,4 +1,11 @@
 .tasks {
+
+
+  &:not(:last-of-type){
+    margin-bottom: 30px;
+  }
+  
+
   
   &__empty {
     position: absolute;
@@ -121,6 +128,41 @@
       display: flex;
       align-items: center;
       margin-bottom: 15px;
+      justify-content: space-between;
+
+      &:hover &-actions{
+        opacity:0.7
+      }
+
+      &-actions{
+        display: flex;
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out;
+
+        div{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 32px;
+          height: 32px;
+          background-color: lighten(#f4f6f8, 5%);
+          border-radius: 6px;
+          margin-left: 5px;
+          cursor: pointer;
+          
+          img{
+            opacity: 0.4;
+          }
+
+          &:hover{
+            background-color: darken(#f4f6f8, 5%);
+            img{
+              opacity: 0.8;
+            }
+          }
+        }
+      }
+
 
       p {
         margin-left: 15px;

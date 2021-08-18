@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Badge from '../Badge/Badge'
 import closeSvg from '../../assets/img/close.svg'
 import axios from 'axios';
@@ -15,19 +15,27 @@ const AddListPopup = ({ colors, setPopupVisible, onAddList }) => {
         selectColor(colors[0].id)
     }
 
+    useEffect(() => {
+        return () => {
+            // selectColor(''); // This worked for me
+          };
+    }, []);
+
     const addList = () => {
         if (!inputValue) {
             alert('Введите название списка');
             return;
         }
-        const color = colors.find(c => (c.id === selectedColor)).name;
+        const color = colors.find(c => (c.id === selectedColor));
+        
         setIsLoading(true)
         axios.post('http://localhost:3001/lists', { name: inputValue, colorId: selectedColor, }).then(
             ({ data }) => {
                 const newListObj = {
                     ...data,
                     color: {
-                        name: color
+                        hex: color.hex,
+                        name: color.name,
                     }
                 }
                 onAddList(newListObj);

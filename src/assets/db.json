@@ -31,14 +31,19 @@
       "id": 6
     },
     {
-      "name": "asdasdasd",
-      "colorId": 1,
+      "name": "asdasd",
+      "colorId": 6,
       "id": 7
     },
     {
-      "name": "ыфваывацы",
-      "colorId": 1,
+      "name": "asdasd",
+      "colorId": 3,
       "id": 8
+    },
+    {
+      "name": "asdasd",
+      "colorId": 2,
+      "id": 9
     }
   ],
   "tasks": [

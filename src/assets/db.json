@@ -184,6 +184,12 @@
       "text": "sdfsdf",
       "completed": false,
       "id": 24
+    },
+    {
+      "listId": 4,
+      "text": "",
+      "completed": false,
+      "id": 25
     }
   ],
   "colors": [
